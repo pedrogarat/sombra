@@ -80,7 +80,7 @@ En las zanjas abiertas a nueve kilómetros de la torre, los hombres se tumbaron 
 
 La voz de Allison arañaba los altavoces de campaña con una cadencia hipnótica:
 
-—*Menos sesenta segundos... Cincuenta... Cuarenta... Diez... cinco, cuatro, tres, dos, uno...*
+—*Menos sesenta segundos... Cincuenta... Cuarenta... Diez... cinco, cuatro, tres, dos, uno...*.
 
 A las **05:29:45**, la realidad se partió en dos.
 
@@ -411,7 +411,7 @@ La invitación llegó pocos días después a sus correos personales:
 
 > *«Estimado amigo:  
 > Estaré unos días en Nueva York para atender unas gestiones privadas. Si sus ocupaciones se lo permiten, me haría una enorme ilusión que pudiéramos compartir esa charla tranquila que tenemos pendiente.  
-> He reservado un espacio tranquilo para que podamos hablar sin interrupciones: la Sala 2 del Hotel Millennium, en Midtown East, muy cerca de la sede de Naciones Unidas.  
+> He reservado un espacio tranquilo para que podamos hablar sin interrupciones: la Sala Dos del Hotel Millennium, en Midtown East, muy cerca de la sede de Naciones Unidas.  
 > Le espero el 24 de septiembre a las diez en punto de la mañana.  
 > Un cordial saludo,  
 > Dr. Em Pleh.»*
@@ -428,7 +428,7 @@ La mañana en Nueva York amaneció fresca y despejada.
 
 El vestíbulo del hotel, a pocas manzanas del East River y del complejo acristalado de la ONU, bullía con el murmullo de diplomáticos, maletas rodantes y delegaciones internacionales.
 
-Jean-Luc Girard bajó las escaleras alfombradas hacia el sótano noble buscando el letrero de la Sala 2. Imaginaba una sala de reuniones reservada: una mesa redonda de madera, café humeante y un par de sillones confortables para charlar con calma.
+Jean-Luc Girard bajó las escaleras alfombradas hacia el sótano noble buscando el letrero de la Sala Dos. Imaginaba una sala de reuniones reservada: una mesa redonda de madera, café humeante y un par de sillones confortables para charlar con calma.
 
 Al empujar la pesada puerta de roble insonorizada, se detuvo desconcertado.
 
@@ -690,11 +690,11 @@ Pleh sostuvo la mirada de los tres con determinación:
 
 Hizo una pausa breve:
 
-—Pero construir esa defensa exigirá el mayor esfuerzo científico y la cooperación más estrecha de toda su historia. No podemos perder la serenidad. Les pido que descansen diez minutos. Tomen aire, beban agua y despejen la mente. Y cuando regresen a sus asientos... les mostraré la respuesta de la Tierra.
+—Pero construir esa defensa exigirá el mayor esfuerzo científico y la cooperación más estrecha de toda su historia. No podemos perder la serenidad. Les pido que descansen media hora. Tomen aire, beban agua y despejen la mente. Y cuando regresen a sus asientos... les mostraré la respuesta de la Tierra.
 
 ---
 
-Durante la media hora siguiente, la Sala 2 se transformó en un centro de deliberación febril.
+Durante la media hora siguiente, la Sala Dos se transformó en un centro de deliberación febril.
 
 A puerta cerrada, Pleh desplegó ante ellos la arquitectura de su plan: una misión espacial de una audacia extrema que desafiaba los límites de la tecnología terrestre. En el auditorio no hubo discursos solemnes; únicamente el desfile de esquemas de propulsión, blindajes magnéticos y cálculos de potencia que Girard, Lin y Wright analizaban con entusiasmo creciente.
 
@@ -1287,7 +1287,7 @@ Thomas le sonrió con esa ternura tranquila que parecía inmune a cualquier cata
 
 —David y Oliver también están a salvo en la campiña. La gente resiste mejor de lo que creemos, Sarah.
 
-Sarah se quedó mirándolo en silencio. La barba recortada con hebras grises, las arrugas nobles alrededor de sus ojos cansados, la calma inquebrantable que aquel hombre había derramado sobre ella desde el primer día en la Sala 2.
+Sarah se quedó mirándolo en silencio. La barba recortada con hebras grises, las arrugas nobles alrededor de sus ojos cansados, la calma inquebrantable que aquel hombre había derramado sobre ella desde el primer día en la Sala Dos.
 
 —Thomas... —susurró ella, acortando la distancia entre ambos.
 

@@ -2,7 +2,7 @@
 ## *La Canción del Silencio / Antigravity*
 
 > **Agente Responsable:** **Memo** (Cronista y Archivero Mayor)
-> **Última actualización:** 2026-11-12 16:39:01 UTC
+> **Última actualización:** 2026-11-18 22:57:04 UTC
 > **Total de sesiones recopiladas:** 58
 
 Este documento recopila la transcripción íntegra y ordenada de las conversaciones, instrucciones, acuerdos técnicos, debates de trama y decisiones editoriales entre el Autor y Antigravity.
@@ -17092,7 +17092,7 @@ si porfa
 ## Sesión 58 - ff8430b6
 **Identificador completo:** `ff8430b6-7faf-4976-9a06-2441aa019e75`  
 **Fecha y Hora de inicio:** `2026-11-08 09:35:38 UTC`  
-**Intercambios registrados:** 78
+**Intercambios registrados:** 97
 
 ### 👤 Autor *(2026-11-08 09:35:38 UTC)*
 
@@ -18354,6 +18354,248 @@ El scrip puede eliminarse cuando acabe el último capítulo?
 
 Una cosa más!
 En las notificaciones puede venir una miniatura de las imágenes y que al hacer click se vean en grande?
+
+### 🤖 Antigravity / Asistente *(2026-11-12 16:39:01 UTC)*
+
+¡Listo! Todo implementado y verificado:
+
+### 1. Horarios configurados en Windows
+La tarea `SOMBRA_Generador_Banners_21_9` ha quedado configurada con **4 disparos diarios fijos**:
+* **08:00 h**
+* **13:00 h**
+* **18:00 h**
+* **23:00 h**
+
+*(Si a alguna de esas horas tienes el ordenador apagado, está activado `StartWhenAvailable`, por lo que se ejecutará en cuanto lo enciendas).*
+
+### 2. Notificación con miniatura e interactiva
+* La notificación de Windows incluye ahora la imagen en modo **banner/hero** en la propia tarjeta de notificación.
+* **Al hacer clic en la notificación**, se abre automáticamente la imagen en grande con el visor de fotos predeterminado de Windows.
+*(Acabo de enviar una de prueba con el capítulo 3 para verificar que Windows la procesa perfectamente).*
+
+### 3. Autoeliminación al terminar el Capítulo 25
+En [generar_siguiente_banner.py](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/generar_siguiente_banner.py), en cuanto se detecte que el Capítulo 25 ya tiene su banner generado y publicado:
+1. Desinstala y borra automáticamente la tarea `SOMBRA_Generador_Banners_21_9` del Programador de Tareas de Windows.
+2. Te muestra una última notificación:
+   > **SOMBRA Novela - Colección Completa**  
+   > *¡Todos los banners 21:9 (Capítulos 1 al 25) han sido generados y publicados! La tarea automática se ha autoeliminado.*
+
+### 👤 Autor *(2026-11-12 17:10:12 UTC)*
+
+Dime el prompt de la imagen apra el capitulo 4
+
+### 🤖 Antigravity / Asistente *(2026-11-12 17:10:16 UTC)*
+
+El prompt guardado para el **Capítulo 4: Alfa Cero** en [novela/prompts_banners_21_9.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/novela/prompts_banners_21_9.md#L42-L44) es:
+
+```text
+Ultra-wide 21:9 panoramic shot inside a secure high-level executive office at the United Nations Headquarters in New York at night. Vassily Ramos (62-year-old distinguished statesman, olive-brown skin, silver-grey hair, dark tailored suit) stands solemnly before a wide wall of encrypted deep-space astronomical monitors displaying faint orbital telemetry lines, flanked by Dra. Sarah Lin, Dr. Thomas Wright, and Dr. Jean-Luc Girard in tense briefing posture. Ultra-wide 21:9 panoramic cinematic film still, deep navy shadows and amber alert glow, photorealistic, no text, aspect ratio 21:9.
+```
+
+### Elementos clave de la escena:
+* **Escenario:** Despacho ejecutivo de alta seguridad en la sede de la ONU en Nueva York, de noche.
+* **Personajes en escena:**
+  * **Vassily Ramos:** Diplomático distinguido de 62 años, piel oliva, pelo canoso-plateado, traje oscuro a medida.
+  * Flanqueado por **Sarah Lin**, **Thomas Wright** y **Jean-Luc Girard** en actitud tensa de informe confidencial.
+* **Fondo y atmósfera:** Gran panel mural con monitores de telemetría orbital y espacio profundo con tenues líneas de datos. Iluminación cinematográfica en tonos azul marino profundo (*deep navy*) con el resplandor ámbar de alerta, estilo hard sci-fi y **sin ningún spoiler** de la trama.
+
+### 👤 Autor *(2026-11-12 17:13:49 UTC)*
+
+quien es el de la izquierda de raza negra?
+
+### 🤖 Antigravity / Asistente *(2026-11-12 17:13:56 UTC)*
+
+En el banner del **Capítulo 2** (que muestra la entrada al Hotel Millennium en Nueva York de noche) o en el del **Capítulo 3** (en la mesa de la Sala Dos), ese personaje es el **Dr. Thomas Wright**:
+
+* **En la novela original:** Está descrito como un científico británico de unos 50 años con sienes plateadas.
+* **En la generación de imagen:** El generador de IA interpretó libremente los rasgos con **tez negra/afrodescendiente** y pelo corto con canas, dándole un porte maduro y distinguido con su abrigo/jersey oscuro.
+* Junto a él están siempre **Sarah Lin** (la científica de rasgos orientales) y **Jean-Luc Girard** (el científico delgado con gafas metálicas).
+
+Por esa razón, en la *Biblia Visual de Personajes* que fijamos para los siguientes capítulos, dejamos anotada su apariencia para que la IA mantenga esa coherencia y no cambie de rostro en los próximos capítulos.
+
+### 👤 Autor *(2026-11-12 17:17:45 UTC)*
+
+A ver, para generar los banners, los personajes deben ser coherentes.
+La imagen canónica de Thoma es img/personajes/thomas.jpg
+¿podemos hacer que los personajes se parezcan a las imágenes de la carpeta personajes?
+
+### 🤖 Antigravity / Asistente *(2026-11-12 17:19:00 UTC)*
+
+**Totalmente.** Tienes toda la razón: acabo de inspeccionar los retratos canónicos que tienes guardados en `img/personajes/` ([thomas.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/thomas.jpg), [sarah.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/sarah.jpg), [jean_luc.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/jean_luc.jpg), [ramos.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/ramos.jpg), [pleh.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/pleh.jpg)):
+
+* **Thomas Wright ([thomas.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/thomas.jpg)):** Es un hombre caucásico británico de unos 50 años, pelo castaño corto con sienes plateadas, mandíbula marcada y jersey azul marino (en el Capítulo 3 la IA lo había interpretado por libre con tez negra).
+* **Sarah Lin ([sarah.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/sarah.jpg)):** Mujer asiática de 34 años, pelo recogido informal, chaqueta plumífero/utilitaria oscura, mirada concentrada.
+* **Jean-Luc Girard ([jean_luc.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/jean_luc.jpg)):** Hombre caucásico francés delgado con gafas rectangulares de montura metálica, bata de laboratorio blanca sobre jersey oscuro.
+* **Vassily Ramos ([ramos.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/personajes/ramos.jpg)):** Estadista senior maduro con abundante pelo canoso peinado hacia atrás, traje diplomático y corbata ligeramente aflojada.
+
+### Medidas ya aplicadas para garantizar la fidelidad canónica:
+1. **Actualizada la *Biblia Visual de Personajes*:** He ajustado las descripciones en [novela/prompts_banners_21_9.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/novela/prompts_banners_21_9.md) para reflejar con total precisión fisonómica la etnia, peinado, edad y vestuario de cada foto canónica.
+2. **Actualizado el prompt del Capítulo 4:** Especifica explícitamente a Thomas como hombre caucásico británico con sienes plateadas y jersey azul marino idéntico al retrato canónico.
+3. **Inyección de referencia obligatoria en el script:** He actualizado [generar_siguiente_banner.py](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/generar_siguiente_banner.py) para que antes de generar cada imagen ordene al subagente consultar las fotos canónicas en `img/personajes/` como referencia estética estricta.
+
+### 👤 Autor *(2026-11-13 07:19:30 UTC)*
+
+ha funcionado el script a la 8:00 ?
+
+### 🤖 Antigravity / Asistente *(2026-11-13 07:20:35 UTC)*
+
+He comprobado el Programador de Tareas de Windows y el estado de la carpeta:
+
+1. **La tarea de Windows sí se disparó puntualmente:**
+   * **Última ejecución:** `13/11/2026 08:00:01`
+   * **Resultado de Windows:** `0` (terminó sin error de sistema).
+   * **Próxima ejecución programada:** Hoy a las `13:00:00`.
+
+2. **Sin embargo, el banner del Capítulo 7 no llegó a guardarse:**
+   * Los últimos banners creados en `img/banners/` son:
+     * `cap_4.jpg` (17:33)
+     * `cap_5.jpg` (18:01)
+     * `cap_6.jpg` (23:02)
+   * A las 08:00 se inició el proceso, pero el subagente de generación de imagen no dejó el archivo `cap_7.jpg`.
+
+Estoy verificando la causa exacta de la llamada para asegurar que no se quede bloqueado y que a las **13:00** (o si prefieres que lo lance ahora mismo) se genere el Capítulo 7 con normalidad.
+
+### 🤖 Antigravity / Asistente *(2026-11-13 07:21:08 UTC)*
+
+He comprobado lo sucedido:
+
+1. **La tarea de Windows se activó puntualmente:** Se disparó a las `08:00:01` con código de salida `0`.
+2. **Capítulos 4, 5 y 6:** Están perfectamente generados, recortados en 21:9 y sincronizados en GitHub (`cap_4.jpg`, `cap_5.jpg` y `cap_6.jpg`).
+3. **Capítulo 7 (el que tocaba a las 8:00):** Se quedó en cola en el subproceso CLI. Acabo de ejecutar la prueba directa en segundo plano (`task-983`) para que termine de generar el **Capítulo 7: El Secreto** ahora mismo y verificar que complete la subida y la notificación interactiva de Windows. Te aviso en cuanto finalice.
+
+### 🤖 Antigravity / Asistente *(2026-11-13 07:24:46 UTC)*
+
+¡Ya está completado y en orden!
+
+### Resumen del estado actual:
+1. **La tarea de Windows a las 8:00:** Se activó a su hora (`08:00:01`), pero el subproceso CLI de generación se había quedado en espera. 
+2. **Capítulo 7 generado:** He lanzado la generación directa de [img/banners/cap_7.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/banners/cap_7.jpg) (*Capítulo 7: El Secreto*, en proporción **21:9** con Sarah Lin y Thomas Wright en el restaurante de la calle 44, manteniendo la coherencia canónica con los retratos).
+3. **Sincronizado a GitHub:** Se ha desplegado en el commit `2cb5437` en `origin/main`.
+4. **Notificación interactiva:** Te acaba de saltar la notificación de Windows con la miniatura para que al hacer clic puedas verla en grande.
+5. **Próximo disparo:** Hoy a las **13:00 h** para el **Capítulo 8: Carrington**.
+
+### 👤 Autor *(2026-11-13 07:26:46 UTC)*
+
+recuerda poner el banner nuevo generado al inicio de cada capitulo
+
+### 🤖 Antigravity / Asistente *(2026-11-13 07:27:40 UTC)*
+
+¡Exacto y verificado! 
+
+El compilador [build-novel-data.js](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/build-novel-data.js) inspecciona automáticamente la carpeta `img/banners/` y enlaza el campo `bannerImage` en la cabecera de cada capítulo dentro de [chapters-data.js](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/chapters-data.js).
+
+Acabo de comprobar los enlaces activos:
+* **Capítulo 1:** `img/banners/cap_1.jpg` ✅
+* **Capítulo 2:** `img/banners/cap_2.jpg` ✅
+* **Capítulo 3:** `img/banners/cap_3.jpg` ✅
+* **Capítulo 4:** `img/banners/cap_4.jpg` ✅
+* **Capítulo 5:** `img/banners/cap_5.jpg` ✅
+* **Capítulo 6:** `img/banners/cap_6.jpg` ✅
+* **Capítulo 7:** `img/banners/cap_7.jpg` ✅
+
+Al abrir cualquiera de estos 7 capítulos en el lector web ([https://pedrogarat.github.io/sombra/](https://pedrogarat.github.io/sombra/)), el banner 21:9 se muestra en la parte superior ocupando todo el ancho panorámico. Los cambios ya están recompilados y subidos a GitHub en el commit `a0574df`.
+
+### 👤 Autor *(2026-11-13 07:27:49 UTC)*
+
+¿Puedes cerrar AGY cuando te lo pida?
+Por ejemplo: "Cuando acabes la tarea cierra AGY"
+
+### 🤖 Antigravity / Asistente *(2026-11-13 07:28:10 UTC)*
+
+**Sí, técnicamente puedo hacerlo**, porque tengo acceso a ejecutar comandos en Windows y puedo cerrar los procesos de `Antigravity IDE` (`Stop-Process -Name "Antigravity IDE"`).
+
+Sin embargo, hay **un detalle muy importante** a tener en cuenta antes de pedirme eso:
+
+1. **Si cierro la ventana de golpe desde un comando:**
+   * Es un cierre forzado del proceso: no te dará tiempo a guardar archivos si estabas editando algo a mano en alguna pestaña sin guardar.
+   * La conversación actual se corta en ese mismo milisegundo (el agente no puede despedirse ni confirmar que se cerró, porque el proceso anfitrión muere).
+2. **Cómo lo gestiona ya el script automático:**
+   * Cuando el script de Windows se ejecuta en las horas programadas (8h, 13h, 18h, 23h), **no abre la ventana de Antigravity IDE**. Se ejecuta en segundo plano silencioso mediante `agy.exe`, genera la imagen, la sube a GitHub y se cierra solo sin dejar nada abierto.
+
+Por tanto:
+* **Si me dices *"cuando acabes cierra AGY"***, guardaré primero todo lo pendiente en el proyecto y lanzaré el cierre de `Antigravity IDE.exe`.
+* O si lo prefieres, puedes cerrar tú la ventana de AGY con la 'X' en cualquier momento, sabiendo que la tarea programada seguirá trabajando sola en segundo plano a sus horas.
+
+### 👤 Autor *(2026-11-13 07:29:08 UTC)*
+
+Guarda todo y cierra AGY
+
+### 👤 Autor *(2026-11-16 18:17:52 UTC)*
+
+Buenas.
+He colgado dos capítulos en INKSpired... ¿lo conoces?
+Me han enviado esto:
+
+Hola Pedro,
+Te escribimos para recordarte que tu historia '[Sombra](https://getinkspired.com/story/765424/sombra)' sigue marcada como "En Revisión".
+Por favor, tómate unos minutos para revisar todos los capítulos de tu historia, y hacer las correcciones de gramática, ortografía, tildes, puntuación y de estilo, para que esté acorde a los niveles de calidad de Inkspired, y que nosotros podamos verificarla.
+Los puntos específicos a revisar en tu historia, de acuerdo a uno de nuestros verificadores, son:
+Falta de punto al final de las oraciones.
+Comentarios de nuestro equipo de verificación:
+Relato de ciencia ficción con buena ambientación histórica y técnica, diálogos bien puntuados con guiones largos y un ritmo que escala con eficacia. Hay pequeñas incoherencias editoriales, como la numeración de capítulos (salta del 1 al 3 tras un capítulo sin número) y el uso alterno de «Sala 2» y «Sala Dos», además de una pausa de diez minutos que luego se describe como media hora.
+Recuerda que tener una historia bien escrita no solo luce mejor, sino que es más atractiva para los lectores. Además, ten en mente que para que nuestro equipo pueda verificar una historia, esta debe de cumplir con todos los lineamientos de las [Reglas Comunitarias](https://getinkspired.com/community-guidelines) :)
+Contar con tu historia verificada trae muchos beneficios en Inkspired para poder atraer más lectores y poderla promocionar más ampliamente en nuestras redes sociales y la comunidad.
+Si crees que ya has hecho *todas* las mejoras en todos los capítulos, y que tu historia está lista para ser revisada otra vez, por favor responde al comentario privado que hemos dejado en tu historia. Responder a este correo electrónico hará que el proceso sea más lento, así que por favor tómate el tiempo de responder específicamente a ese comentario.
+Esperamos que tengas un gran día,
+Saludos cordiales,
+
+He colgado la versión scifi (no hard).
+
+Revisa
+
+### 🤖 Antigravity / Asistente *(2026-11-16 18:23:09 UTC)*
+
+Conozco bien **Inkspired** (plataforma de publicación seriada con verificación editorial por revisores humanos). Lo primero: **el feedback del verificador es extraordinariamente positivo** («*Relato de ciencia ficción con buena ambientación histórica y técnica, diálogos bien puntuados con guiones largos y un ritmo que escala con eficacia*»). Solo te señalan tres detalles muy puntuales y fáciles de subsanar:
+
+---
+
+### 1. La incoherencia de «Sala 2» vs. «Sala Dos»
+* **El problema:** En el Capítulo 3 se alternaba el título y el diálogo diciendo *"Sala Dos"*, mientras que en la narración y en el correo de Pleh ponía *"Sala 2"*.
+* **Corrección aplicada:** Ya he unificado todo el texto canónico a **«Sala Dos»** (en letras, siguiendo la norma de estilo literario) tanto en [capitulo_3.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/novela/capitulos_scifi/capitulo_3.md) como en el manuscrito completo [la_cancion_del_silencio_scifi_completa.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/novela/la_cancion_del_silencio_scifi_completa.md).
+
+---
+
+### 2. La pausa de «diez minutos» que luego se describía como «media hora»
+* **El problema:** Al final de la Sección VIII del Capítulo 3, Pleh decía: *«Les pido que descansen diez minutos»*, pero la sección siguiente comenzaba diciendo: *«Durante la media hora siguiente, la Sala Dos se transformó en un centro de deliberación febril»*.
+* **Corrección aplicada:** Corregido el parlamento de Pleh a:
+  > *«Les pido que descansen **media hora**. Tomen aire, beban agua y despejen la mente...»*
+
+---
+
+### 3. La numeración de capítulos en Inkspired («salta del 1 al 3 tras un capítulo sin número»)
+* **El problema:** En Inkspired, cada entrega que publicas tiene un campo para el **Título del capítulo**.
+  * Si subiste el primer capítulo como `Capítulo 1: Alamogordo` o como un prólogo sin número, y el siguiente lo pusiste sin numerar o con el título `Sala Dos` creyendo que era el 2, o bien subiste el Capítulo 3 directamente saltándote el 2 (*Tres Hilos*).
+* **Solución en tu panel de Inkspired:**
+  Comprueba los nombres de los capítulos que tienes creados en la web de Inkspired:
+  * **Capítulo 1:** `Capítulo 1: Alamogordo`
+  * **Capítulo 2:** `Capítulo 2: Tres Hilos` (Ginebra, Boston, Darmstadt; cuando reciben los correos de Pleh por separado).
+  * **Capítulo 3:** `Capítulo 3: Sala Dos` (el encuentro presencial en el Hotel Millennium).
+  Asegúrate de que el Capítulo 2 tenga el número **«Capítulo 2»** en su título dentro de la plataforma.
+
+---
+
+### 4. Puntuación y puntos finales
+* He auditado los 3 primeros capítulos: la puntuación de diálogos con raya larga (`—`) está impecable. Se ha cerrado con punto la cuenta atrás del Capítulo 1 que cerraba en cursiva (`...uno...*.`).
+
+---
+
+### 📋 Texto listo para responder al comentario privado de Inkspired:
+
+Cuando actualices los textos en tu panel de autor de Inkspired, puedes responderles al comentario privado con este mensaje:
+
+> *«Estimado equipo de verificación de Inkspired:*  
+> *Muchas gracias por la atenta lectura y los comentarios. He realizado todas las correcciones señaladas:*  
+> *1. Numeración de capítulos unificada y corregida correlativamente (Capítulo 1, Capítulo 2 y Capítulo 3).*  
+> *2. Homogeneizado el uso a «Sala Dos» en todo el texto y correspondencia.*  
+> *3. Corregida la coherencia temporal de la pausa previa a la deliberación (fijada en media hora).*  
+> *4. Revisada la puntuación y cierres de oraciones en todos los párrafos y diálogos.*  
+> *Quedo a la espera de su validación. Un cordial saludo.»*
+
+### 👤 Autor *(2026-11-18 22:53:58 UTC)*
+
+- Actualiza la web con los nuevos banners
+- Elimina la opción de audiolibro
+- Cuando le dasl amenu de arriba a la izquierda que sólo aparezca la lista de capítulos
 
 
 ---

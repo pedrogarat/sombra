@@ -80,7 +80,7 @@ En las zanjas abiertas a nueve kilómetros de la torre, los hombres se tumbaron 
 
 La voz de Allison arañaba los altavoces de campaña con una cadencia hipnótica:
 
-—*Menos sesenta segundos... Cincuenta... Cuarenta... Diez... cinco, cuatro, tres, dos, uno...*
+—*Menos sesenta segundos... Cincuenta... Cuarenta... Diez... cinco, cuatro, tres, dos, uno...*.
 
 A las **05:29:45**, la realidad se partió en dos.
 

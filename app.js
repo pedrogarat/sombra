@@ -160,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         try { renderSidebarList(); } catch(e) { console.error('Error in renderSidebarList:', e); }
         try { renderCodexAndEscaleta(); } catch(e) { console.error('Error in renderCodexAndEscaleta:', e); }
-        try { initAudiobook(); } catch(e) { console.error('Error in initAudiobook:', e); }
 
         // Inicializar capítulo en memoria
         try {
@@ -216,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnToggleSidebar.addEventListener('click', openSidebar);
         btnCloseSidebar.addEventListener('click', closeSidebar);
         sidebarOverlay.addEventListener('click', closeSidebar);
-        sidebarFilter.addEventListener('input', renderSidebarList);
+        if (sidebarFilter) sidebarFilter.addEventListener('input', renderSidebarList);
 
         // Modales
         if (btnOpenSettings) btnOpenSettings.addEventListener('click', () => openModal('modal-settings'));
@@ -228,15 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btnOpenSearch.addEventListener('click', () => {
                 openModal('modal-search');
                 if (globalSearchInput) globalSearchInput.focus();
-            });
-        }
-        if (btnOpenAudiobook) {
-            btnOpenAudiobook.addEventListener('click', () => openAudiobookModal('chapter', currentChapterIndex));
-        }
-        if (btnListenChapter) {
-            btnListenChapter.addEventListener('click', () => {
-                openAudiobookModal('chapter', currentChapterIndex);
-                playAudiobook();
             });
         }
 
@@ -1061,7 +1051,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- RENDERIZAR SIDEBAR Y CODICES ---
     function renderSidebarList() {
         sidebarChaptersList.innerHTML = '';
-        const filterText = sidebarFilter.value.toLowerCase().trim();
+        const filterText = sidebarFilter ? sidebarFilter.value.toLowerCase().trim() : '';
 
         NOVEL_DATA.chapters.forEach((chap, idx) => {
             if (filterText && !chap.title.toLowerCase().includes(filterText) && !chap.location.toLowerCase().includes(filterText)) {
