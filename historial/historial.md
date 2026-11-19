@@ -2,8 +2,8 @@
 ## *La Canción del Silencio / Antigravity*
 
 > **Agente Responsable:** **Memo** (Cronista y Archivero Mayor)
-> **Última actualización:** 2026-11-18 22:57:04 UTC
-> **Total de sesiones recopiladas:** 58
+> **Última actualización:** 2026-11-19 06:32:35 UTC
+> **Total de sesiones recopiladas:** 59
 
 Este documento recopila la transcripción íntegra y ordenada de las conversaciones, instrucciones, acuerdos técnicos, debates de trama y decisiones editoriales entre el Autor y Antigravity.
 
@@ -69,6 +69,7 @@ Este documento recopila la transcripción íntegra y ordenada de las conversacio
 - **[Sesión 56 — 2026-10-29 20:38:54 UTC](#sesión-56---59d754fa)**: /capitan-memo Quiero que revises toda la novela por si hay incoherencias, en nom...
 - **[Sesión 57 — 2026-11-02 07:26:43 UTC](#sesión-57---1d93dec2)**: @[f:\Onedrive\ANTIGRAVITY\NOVELA_3\novela\capitulos\capitulo_23.md:L156] Al prin...
 - **[Sesión 58 — 2026-11-08 09:35:38 UTC](#sesión-58---ff8430b6)**: haz un prompt como los anteriores que hicimos pero en el que aparezcan los agent...
+- **[Sesión 59 — 2026-11-19 06:30:54 UTC](#sesión-59---c43a3725)**: (Sin texto inicial)...
 
 ---
 
@@ -17092,7 +17093,7 @@ si porfa
 ## Sesión 58 - ff8430b6
 **Identificador completo:** `ff8430b6-7faf-4976-9a06-2441aa019e75`  
 **Fecha y Hora de inicio:** `2026-11-08 09:35:38 UTC`  
-**Intercambios registrados:** 97
+**Intercambios registrados:** 101
 
 ### 👤 Autor *(2026-11-08 09:35:38 UTC)*
 
@@ -18596,6 +18597,50 @@ Cuando actualices los textos en tu panel de autor de Inkspired, puedes responder
 - Actualiza la web con los nuevos banners
 - Elimina la opción de audiolibro
 - Cuando le dasl amenu de arriba a la izquierda que sólo aparezca la lista de capítulos
+
+### 🤖 Antigravity / Asistente *(2026-11-18 22:57:33 UTC)*
+
+Cambios aplicados y compilados en local:
+
+1. **Los 25 banners actualizados:** `node build-novel-data.js` ha enlazado los **25 banners 21:9** (`cap_1.jpg` a `cap_25.jpg`) en [chapters-data.js](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/chapters-data.js) (`v=1795042598905`).
+2. **Opción de Audiolibro eliminada:** Retirados el botón **Audiolibro** de la cabecera, el botón **Escuchar Audiolibro** dentro de cada capítulo, el modal del reproductor en [index.html](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/index.html) y su inicialización en [app.js](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/app.js).
+3. **Menú izquierdo simplificado:** Al pulsar el icono de menú arriba a la izquierda (`#sidebar`), ahora solo muestra el título **Capítulos** (con el botón `×`) y la **lista de capítulos** limpia, sin portada, estadísticas, filtros ni botones extra.
+
+Estoy subiendo los cambios a GitHub (`task-1186`); en unos segundos te confirmo el despliegue.
+
+### 🤖 Antigravity / Asistente *(2026-11-18 22:57:50 UTC)*
+
+¡Despliegue completado en GitHub!
+
+* **Commit publicado:** `9164979` en `main` (`https://pedrogarat.github.io/sombra/`).
+* **Banners subidos:** Los 25 capítulos cuentan ya con su banner 21:9 (se acaban de añadir `cap_8.jpg` hasta `cap_25.jpg` junto con los 7 anteriores).
+* **Interfaz actualizada:** Audiolibro eliminado y menú izquierdo (`#sidebar`) limpio mostrando únicamente la lista de capítulos.
+
+En ~1 minuto GitHub Pages reflejará la versión `v=1795042598905` (puedes pulsar el botón `🔄` en la cabecera si tu navegador guarda caché anterior).
+
+### 👤 Autor *(2026-11-19 06:30:15 UTC)*
+
+La imagen banner del capítulo 18 muestra una nave que no tiene nada que ver con la del 19.
+Cámbiala prevaleciendo la del 19 (o similar). 
+Actualiza la web también
+
+### 🤖 Antigravity / Asistente *(2026-11-19 06:30:54 UTC)*
+
+He revisado [cap_18.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/banners/cap_18.jpg) y [cap_19.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/banners/cap_19.jpg): efectivamente, el 18 mostraba un cohete negro con un transbordador alado (con texto inventado), mientras que el 19 muestra la nave modular cilíndrica metálica con celosía, tanques y paneles/radiadores.
+
+He actualizado el prompt en [prompts_banners_21_9.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/novela/prompts_banners_21_9.md#L84-L85) y estoy generando el nuevo banner del **Capítulo 18** tomando la nave de `cap_19.jpg` como referencia directa (vertical en la rampa de lanzamiento con los paneles plegados, sin alas y sin texto). En cuanto termine, lo recorto a 21:9, lo verifico y actualizo la web en GitHub.
+
+
+---
+
+## Sesión 59 - c43a3725
+**Identificador completo:** `c43a3725-bafc-4f19-90e4-3e13e50eded1`  
+**Fecha y Hora de inicio:** `2026-11-19 06:30:54 UTC`  
+**Intercambios registrados:** 1
+
+### 🤖 Antigravity / Asistente *(2026-11-19 06:31:42 UTC)*
+
+Generated and reported `C:\Users\Usuario\.gemini\antigravity\brain\ff8430b6-7faf-4976-9a06-2441aa019e75\cap_18_la_rampa_1795069885325.jpg` to the parent agent.
 
 
 ---
