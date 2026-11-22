@@ -7,7 +7,7 @@ El comedor privado de la planta baja del hotel olía a café recién molido, pan
 
 Sentados alrededor de una mesa redonda cubierta con un mantel blanco impecable, Sarah Lin, Jean-Luc Girard y Thomas Wright contemplaban los platos servidos por el servicio diplomático sin apenas tocarlos. En el centro de la mesa reposaban fuentes de ensalada, pescado a la plancha y jarras de agua con hielo. Para los tres científicos, el aroma de la comida tenía la consistencia de la ceniza.
 
-A través de los grandes ventanales, los peatones caminaban a paso ligero por la Primera Avenida. Un autobús urbano descargaba viajeros; un repartidor descargaba cajas de fruta; una madre empujaba un carrito infantil bajo el sol de otoño. Nadie en el exterior sospechaba que un cronómetro de ocho meses corría sobre sus cabezas.
+A través de los grandes ventanales, los peatones caminaban a paso ligero por la Primera Avenida. Un autobús urbano descargaba viajeros; un repartidor apilaba cajas de fruta; una madre empujaba un carrito infantil bajo el sol de otoño. Nadie en el exterior sospechaba que un cronómetro de ocho meses corría sobre sus cabezas.
 
 —No logro tragar nada —dijo Sarah en voz baja, dejando el tenedor sobre el plato—. Cada vez que miro a la calle siento que estamos traicionando a toda esa gente por guardar silencio.
 
@@ -27,6 +27,7 @@ Un silencio pesado cayó sobre la mesa. Los tres sabían lo que significaba aque
 Las suites ocupaban un ala reservada de la planta veintiocho, con vistas panorámicas sobre el East River. Cada uno se retiró a su respectiva habitación. En los dormitorios reinaba una quietud densa, rota únicamente por el zumbido de las líneas telefónicas cifradas habilitadas por la ONU.
 
 #### 1. Jean-Luc Girard: El Refugio de Versoix
+
 En la suite 2804, Jean-Luc Girard marcó el número privado de su casa en Versoix, a orillas del lago Lemán. En Suiza ya eran casi las ocho y media de la tarde.
 
 El teléfono sonó dos veces antes de que la voz cálida de su esposa Marie respondiera al otro lado:
@@ -66,6 +67,7 @@ El joven guardó silencio un instante, asimilando la seriedad de su padre:
 Girard colgó muy despacio, apoyando la frente contra el cristal frío de la ventana con lágrimas contenidas en los ojos.
 
 #### 2. Sarah Lin: La Ruptura y la Memoria
+
 En la suite 2806, Sarah Lin caminaba de un extremo a otro del salón con el móvil en la oreja. Al sexto tono, una voz masculina y distante descolgó desde Boston:
 
 —*¿Sarah? Vaya horas de llamar. Estoy en el laboratorio.*
@@ -89,6 +91,7 @@ Colgó sin esperar respuesta, sintiendo el chasquido sordo del final de una etap
 De inmediato, buscó en su agenda el número de su hermana Maya en San Francisco. La pantalla mostró que el terminal estaba fuera de cobertura o apagado. Sarah contempló la fotografía de su sobrino Toby, de cuatro años, jugando en la playa. «Perdóname, Maya», susurró al vacío. «Voy a luchar para que tengáis un mañana».
 
 #### 3. Thomas Wright: El Vínculo de Sangre
+
 En la suite 2808, Thomas Wright contemplaba el East River con las manos en los bolsillos cuando su hermano menor David descolgó el teléfono desde Cambridge:
 
 —*¡Thomas! Qué sorpresa. ¿Sigues en la selva de asfalto? ¿Cómo fue ese misterioso café con tu sabio de internet?*
@@ -114,7 +117,7 @@ Wright colgó y respiró hondo, cuadrando los hombros antes de salir al pasillo.
 ---
 
 ### III. La Puerta
-*Plaza de las Naciones Unidas, 15:52 EDT*
+*Plaza de las Naciones Unidas, 15:50 EDT*
 
 A las cuatro menos diez, los tres científicos se encontraron en el vestíbulo del hotel.
 

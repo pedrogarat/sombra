@@ -10,7 +10,7 @@ En lo alto de la torre de acero de treinta metros, la estructura vibraba bajo la
 
 Frente a él reposaba «El Artefacto» (*The Gadget*).
 
-Parecía un gigantesco erizo de hierro forjado: una esfera negra y bulbosa de la que brotaban decenas de cables que se retorcían como venas hacia los detonadores de choque. En su centro, una esfera de plutonio del tamaño de una naranja aguardaba en equilibrio crítico.
+Parecía un gigantesco erizo de hierro forjado: una esfera negra y bulbosa de la que brotaban decenas de cables que se retorcían como venas hacia los detonadores de choque. En su centro, un núcleo de plutonio del tamaño de una naranja aguardaba en equilibrio crítico.
 
 Un relámpago iluminó las nubes bajas con un resplandor azul eléctrico.
 
@@ -80,7 +80,7 @@ En las zanjas abiertas a nueve kilómetros de la torre, los hombres se tumbaron 
 
 La voz de Allison arañaba los altavoces de campaña con una cadencia hipnótica:
 
-—*Menos sesenta segundos... Cincuenta... Cuarenta... Diez... cinco, cuatro, tres, dos, uno...*.
+—*Menos sesenta segundos... Cincuenta... Cuarenta... Diez... cinco, cuatro, tres, dos, uno...*
 
 A las **05:29:45**, la realidad se partió en dos.
 
@@ -117,13 +117,17 @@ Nadie sospechaba que la verdadera detonación no se había quedado en la arena d
 
 La atmósfera de la Tierra retuvo la onda expansiva del aire y las cenizas radiactivas. La radiación electromagnética escapó al cosmos a trescientos mil kilómetros por segundo.
 
-En el instante exacto de la fisión, el núcleo de plutonio liberó un pulso invisible de radiación de alta energía y firmas isotópicas artificiales que perforó la ionosfera terrestre y se expandió hacia la negrura del vacío a trescientos mil kilómetros por segundo:
+En el instante exacto de la fisión, el núcleo de plutonio liberó un pulso invisible de radiación de alta energía y firmas isotópicas artificiales que perforó la ionosfera terrestre y se expandió hacia la negrura del vacío:
 
-• A las **05:29:47 AM**, la onda barrió el regolito gris y silencioso de la Luna.  
-• A las **05:44 AM**, cruzó el cielo desierto de Marte.  
-• A las **06:15 AM**, atravesó la inmensidad tormentosa de Júpiter.  
-• A las **07:05 AM**, acarició los anillos de hielo de Saturno.  
-• A las **09:42 AM**, rebasó la órbita de Neptuno y se internó en el frío perpetuo del Cinturón de Kuiper.  
+• A las **05:29:47 AM**, la onda barrió el regolito gris y silencioso de la Luna.
+
+• A las **05:44 AM**, cruzó el cielo desierto de Marte.
+
+• A las **06:15 AM**, atravesó la inmensidad tormentosa de Júpiter.
+
+• A las **07:05 AM**, acarició los anillos de hielo de Saturno.
+
+• A las **09:42 AM**, rebasó la órbita de Neptuno y se internó en el frío perpetuo del Cinturón de Kuiper.
 
 Y horas más tarde, tras devorar miles de millones de kilómetros por el desierto cósmico, aquel suspiro nacido en Alamogordo alcanzó la última frontera de nuestro sistema planetario: la **Nube de Oort**.
 

@@ -2,7 +2,7 @@
 ## *La Canción del Silencio / Antigravity*
 
 > **Agente Responsable:** **Memo** (Cronista y Archivero Mayor)
-> **Última actualización:** 2026-11-19 06:32:35 UTC
+> **Última actualización:** 2026-11-22 15:15:19 UTC
 > **Total de sesiones recopiladas:** 59
 
 Este documento recopila la transcripción íntegra y ordenada de las conversaciones, instrucciones, acuerdos técnicos, debates de trama y decisiones editoriales entre el Autor y Antigravity.
@@ -69,7 +69,7 @@ Este documento recopila la transcripción íntegra y ordenada de las conversacio
 - **[Sesión 56 — 2026-10-29 20:38:54 UTC](#sesión-56---59d754fa)**: /capitan-memo Quiero que revises toda la novela por si hay incoherencias, en nom...
 - **[Sesión 57 — 2026-11-02 07:26:43 UTC](#sesión-57---1d93dec2)**: @[f:\Onedrive\ANTIGRAVITY\NOVELA_3\novela\capitulos\capitulo_23.md:L156] Al prin...
 - **[Sesión 58 — 2026-11-08 09:35:38 UTC](#sesión-58---ff8430b6)**: haz un prompt como los anteriores que hicimos pero en el que aparezcan los agent...
-- **[Sesión 59 — 2026-11-19 06:30:54 UTC](#sesión-59---c43a3725)**: (Sin texto inicial)...
+- **[Sesión 59 — 2026-11-19 06:30:54 UTC](#sesión-59---c43a3725)**: (Sesión preservada)...
 
 ---
 
@@ -17093,7 +17093,7 @@ si porfa
 ## Sesión 58 - ff8430b6
 **Identificador completo:** `ff8430b6-7faf-4976-9a06-2441aa019e75`  
 **Fecha y Hora de inicio:** `2026-11-08 09:35:38 UTC`  
-**Intercambios registrados:** 101
+**Intercambios registrados:** 108
 
 ### 👤 Autor *(2026-11-08 09:35:38 UTC)*
 
@@ -18630,6 +18630,76 @@ He revisado [cap_18.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/banners/ca
 
 He actualizado el prompt en [prompts_banners_21_9.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/novela/prompts_banners_21_9.md#L84-L85) y estoy generando el nuevo banner del **Capítulo 18** tomando la nave de `cap_19.jpg` como referencia directa (vertical en la rampa de lanzamiento con los paneles plegados, sin alas y sin texto). En cuanto termine, lo recorto a 21:9, lo verifico y actualizo la web en GitHub.
 
+### 🤖 Antigravity / Asistente *(2026-11-19 06:32:29 UTC)*
+
+¡El nuevo banner del **Capítulo 18** ha quedado clavado a la nave del **Capítulo 19**!
+
+* **Coherencia visual verificada en [cap_18.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/banners/cap_18.jpg) (`1376x590`, 21:9):** Muestra exactamente la misma nave modular cilíndrica metálica con la sección de celosía, los tanques blancos presurizados, los paneles plegados para el lanzamiento y la gran tobera inferior sobre la torre de Nellis, con Sarah Lin y Thomas Wright en la pasarela y sin texto en el fuselaje.
+* **Compilación completada:** `chapters-data.js` e `index.html` actualizados (`v=1795069940522`).
+
+Estoy terminando de consolidar la bitácora y subir el cambio a GitHub (`task-1207`); en unos segundos te confirmo el commit.
+
+### 🤖 Antigravity / Asistente *(2026-11-19 06:32:51 UTC)*
+
+¡Listo! Despliegue completado en GitHub:
+
+* **Commit publicado:** `a23e073` en `main` (`https://pedrogarat.github.io/sombra/`).
+* **Archivos actualizados:** [cap_18.jpg](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/img/banners/cap_18.jpg), [prompts_banners_21_9.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/novela/prompts_banners_21_9.md), [chapters-data.js](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/chapters-data.js), [index.html](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/index.html) (`v=1795069940522`) y [historial.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/historial/historial.md) (`59` sesiones consolidadas).
+
+Si el navegador aún te muestra el banner anterior del capítulo 18 por caché de imagen, haz una recarga forzada (`Ctrl+F5` o el botón `🔄` en la web).
+
+### 👤 Autor *(2026-11-19 06:36:48 UTC)*
+
+Revisa la coherencia de todos los banners con el texto y haz un informe. Ten en cuenta la descripción de cada personaje, objetos, lugares, hora del día... que sea consecuente con la trama
+
+### 🤖 Antigravity / Asistente *(2026-11-19 06:40:15 UTC)*
+
+He completado la auditoría visual y narrativa de los **25 banners** contrastándolos directamente contra el texto real de cada capítulo y los retratos canónicos en `img/personajes/`.
+
+Puedes revisar el análisis detallado capítulo por capítulo en:  
+📄 [auditoria_coherencia_banners.md](file:///C:/Users/Usuario/.gemini/antigravity/brain/ff8430b6-7faf-4976-9a06-2441aa019e75/auditoria_coherencia_banners.md)
+
+### Balance general
+* **🟢 11 aprobados** (coherencia alta): Capítulos `1, 2, 9, 12, 13, 15, 16, 18, 19, 22, 23`.
+* **🔴 7 críticos (recomendado rehacer):** Capítulos `3, 4, 10, 11, 14, 17, 20` (por incoherencias serias de personajes —como el hombre desconocido en el 4, Ramos vestido de soldado en el 10, Chen Mei con bandera de EE.UU. en el 11 o Girard irreconocible en el 14—, lugar/hora en el 3, exposición solar letal en el 17, y la Tierra en órbita baja en vez de L1 en el 20).
+* **🟡 7 mejorables (detalles menores):** Capítulos `5, 6, 7, 8, 21, 24, 25`.
+
+¿Quieres que regeneremos los **7 críticos** (o los que tú elijas) y actualicemos la web?
+
+### 👤 Autor *(2026-11-19 06:42:16 UTC)*
+
+Ahora no. Vuelve a lanzar el script silencioso de generación de imágenes (1 cada 4 horas). Añade al script también la actualización de la web con el nuevo banner.
+
+### 🤖 Antigravity / Asistente *(2026-11-19 06:45:05 UTC)*
+
+¡Listo! Todo configurado y programado en Windows (sin ejecutar nada ahora mismo):
+
+### 1. Cola de regeneración y prompts corregidos
+* He corregido los prompts de los **7 banners críticos** en [prompts_banners_21_9.md](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/novela/prompts_banners_21_9.md) para corregir todas las incoherencias detectadas (Cap. 3 auditorio de mañana con pantalla plana, Cap. 4 solo 4 personas a mediodía, Cap. 10 Ramos civil y brújula de bolsillo, Cap. 11 Chen Mei sin bandera de EE.UU. ni hologramas, Cap. 14 Girard y Thomas canónicos sin texto corrupto, Cap. 17 noche fosforescente de Suffolk, Cap. 20 espacio profundo L1 sin horizonte terrestre).
+* Creada la cola [banners_pendientes_rehacer.json](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/banners_pendientes_rehacer.json) con `[3, 4, 10, 11, 14, 17, 20]` (así la web mantiene los banners actuales mientras se van sustituyendo uno a uno).
+
+### 2. Script silencioso + actualización automática de la web
+* Actualizado [generar_siguiente_banner.py](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/generar_siguiente_banner.py): tras generar y recortar cada banner `cap_<N>.jpg` a 21:9, el propio script ejecuta automáticamente:
+  1. `node build-novel-data.js` (actualiza [chapters-data.js](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/chapters-data.js), `version.json` y el `?v=` de [index.html](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/index.html))
+  2. `python .agents/skills/memo/scripts/recopilar_historial.py`
+  3. `python sync_multiversion_to_github.py` (publica en GitHub Pages)
+  4. Envía la notificación interactiva de Windows con miniatura del nuevo banner.
+  5. Al completar el último capítulo de la cola (`20`), **se autoelimina** del Programador de Tareas de Windows.
+
+### 3. Tarea programada activa en Windows
+* **Nombre:** `SOMBRA_Generador_Banners_21_9` (configurada con [instalar_tarea_windows.ps1](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/instalar_tarea_windows.ps1), ejecución oculta `-WindowStyle Hidden` con registro en `cron_banners.log`).
+* **Estado:** `Ready`
+* **Primera ejecución:** Hoy a las **11:44:40** y luego **1 cada 4 horas** (con `StartWhenAvailable` por si el PC está apagado en algún tramo).
+
+*(Si más adelante quieres añadir alguno de los 7 capítulos mejorables —`5, 6, 7, 8, 21, 24, 25`— a la cola, solo habría que añadir sus números en [banners_pendientes_rehacer.json](file:///g:/OneDrive/ANTIGRAVITY/NOVELA_3/banners_pendientes_rehacer.json)).*
+
+### 👤 Autor *(2026-11-22 15:11:25 UTC)*
+
+Buenas!
+
+Tengo comentario de Inkspired.
+revisa lo que dice
+
 
 ---
 
@@ -18641,6 +18711,5 @@ He actualizado el prompt en [prompts_banners_21_9.md](file:///g:/OneDrive/ANTIGR
 ### 🤖 Antigravity / Asistente *(2026-11-19 06:31:42 UTC)*
 
 Generated and reported `C:\Users\Usuario\.gemini\antigravity\brain\ff8430b6-7faf-4976-9a06-2441aa019e75\cap_18_la_rampa_1795069885325.jpg` to the parent agent.
-
 
 ---

@@ -1,60 +1,89 @@
 # -*- coding: utf-8 -*-
 """
-Script autónomo para Windows: Generación automática de banners 21:9 para SOMBRA.
-Busca el primer capítulo pendiente (entre 1 y 25), lanza agy.exe de forma silenciosa,
-recorta a 21:9, actualiza datos web y bitácora, y sube a GitHub.
+Script autónomo para Windows: Generación y regeneración automática de banners 21:9 para SOMBRA.
+- Prioriza los capítulos listados en banners_pendientes_rehacer.json (cola de mejoras/correcciones).
+- Si la cola está vacía, busca el primer capítulo sin banner (del 1 al 25).
+- Lanza agy.exe de forma silenciosa, verifica que el archivo cap_<N>.jpg se ha actualizado,
+  compila la web (node build-novel-data.js), actualiza historial y sube a GitHub automáticamente.
+- Se autoelimina del Programador de Tareas de Windows cuando termina el último capítulo pendiente.
 """
+import json
 import os
-import sys
 import re
 import subprocess
+import sys
+import time
 from pathlib import Path
 
 WORKSPACE = Path(__file__).resolve().parent
 BANNERS_DIR = WORKSPACE / "img" / "banners"
 PROMPTS_FILE = WORKSPACE / "novela" / "prompts_banners_21_9.md"
-AGY_EXE = Path(r"C:\Users\Usuario\.gemini\bin\agy.exe")
+QUEUE_FILE = WORKSPACE / "banners_pendientes_rehacer.json"
+AGY_EXE = Path.home() / ".gemini" / "bin" / "agy.exe"
+TASK_NAME = "SOMBRA_Generador_Banners_21_9"
+
+
+def cargar_cola():
+    if QUEUE_FILE.exists():
+        try:
+            data = json.loads(QUEUE_FILE.read_text(encoding="utf-8"))
+            if isinstance(data, list):
+                return [int(x) for x in data]
+        except Exception as e:
+            print(f"[Aviso] Error leyendo {QUEUE_FILE.name}: {e}")
+    return []
+
+
+def guardar_cola(cola):
+    QUEUE_FILE.write_text(json.dumps(cola, indent=2), encoding="utf-8")
+
 
 def encontrar_siguiente_capitulo():
     BANNERS_DIR.mkdir(parents=True, exist_ok=True)
+    cola = cargar_cola()
+    if cola:
+        return cola[0], True  # (cap_num, es_regeneracion)
     for cap in range(1, 26):
         banner_jpg = BANNERS_DIR / f"cap_{cap}.jpg"
         banner_png = BANNERS_DIR / f"cap_{cap}.png"
         if not banner_jpg.exists() and not banner_png.exists():
-            return cap
-    return None
+            return cap, False
+    return None, False
+
 
 def extraer_prompt(cap_num):
     if not PROMPTS_FILE.exists():
         print(f"[ERROR] No se encuentra {PROMPTS_FILE}")
         return None
     content = PROMPTS_FILE.read_text(encoding="utf-8")
-    
-    # Buscar sección del capítulo: ### Capítulo N: o ## Capítulo N:
     patron = rf"###?\s*Cap[íi]tulo\s+{cap_num}\b.*?(?=###?\s*Cap[íi]tulo|\Z)"
     match = re.search(patron, content, re.DOTALL | re.IGNORECASE)
     if not match:
         print(f"[ERROR] No se encontró el prompt para el capítulo {cap_num} en {PROMPTS_FILE}")
         return None
-    
     seccion = match.group(0)
-    # Extraer bloque de código con el prompt
-    code_match = re.search(r"```(?:\w+)?\s*\n(.*?)\n```", seccion, re.DOTALL)
-    if code_match:
-        return code_match.group(1).strip()
+    # Extraer entre comillas invertidas `...` o bloque ```...```
+    code_block = re.search(r"```(?:\w+)?\s*\n(.*?)\n```", seccion, re.DOTALL)
+    if code_block:
+        return code_block.group(1).strip()
+    inline_code = re.search(r"`([^`]{40,})`", seccion, re.DOTALL)
+    if inline_code:
+        return inline_code.group(1).strip()
     return seccion.strip()
 
+
 def desinstalar_tarea_programada():
-    """Elimina la tarea del Programador de Tareas de Windows cuando ya no quedan capitulos."""
+    """Elimina la tarea del Programador de Tareas de Windows cuando ya no quedan capítulos."""
     try:
         subprocess.run(
-            ["schtasks", "/delete", "/tn", "SOMBRA_Generador_Banners_21_9", "/f"],
+            ["schtasks", "/delete", "/tn", TASK_NAME, "/f"],
             capture_output=True,
-            text=True
+            text=True,
         )
-        print("[OK] Tarea programada 'SOMBRA_Generador_Banners_21_9' desinstalada de Windows automáticamente.")
+        print(f"[OK] Tarea programada '{TASK_NAME}' desinstalada de Windows automáticamente.")
     except Exception as e:
         print(f"[Aviso] No se pudo desinstalar la tarea programada: {e}")
+
 
 def mostrar_notificacion_windows(titulo, mensaje, ruta_imagen=None):
     """Muestra una notificación nativa Toast en Windows con imagen y clic para abrirla en grande."""
@@ -64,7 +93,7 @@ def mostrar_notificacion_windows(titulo, mensaje, ruta_imagen=None):
         uri_img = Path(ruta_imagen).resolve().as_uri()
         xml_img = f'<image placement="hero" src="{uri_img}"/>'
         launch_attr = f'launch="{uri_img}" activationType="protocol"'
-    
+
     ps_cmd = f"""
     [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] > $null
     [Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] > $null
@@ -89,52 +118,71 @@ def mostrar_notificacion_windows(titulo, mensaje, ruta_imagen=None):
     except Exception as e:
         print(f"[Aviso] No se pudo enviar notificación nativa: {e}")
 
+
+def actualizar_web_y_github():
+    """Compila chapters-data.js / index.html, actualiza historial y despliega en GitHub."""
+    pasos = [
+        ("Compilando datos web (build-novel-data.js)", ["node", "build-novel-data.js"]),
+        ("Actualizando bitácora (recopilar_historial.py)", [sys.executable, ".agents/skills/memo/scripts/recopilar_historial.py"]),
+        ("Sincronizando con GitHub (sync_multiversion_to_github.py)", [sys.executable, "sync_multiversion_to_github.py"]),
+    ]
+    for desc, cmd in pasos:
+        print(f"[*] {desc}...")
+        res = subprocess.run(cmd, cwd=str(WORKSPACE), capture_output=True, text=True, encoding="utf-8", errors="replace")
+        if res.returncode != 0:
+            print(f"[ERROR] Falló '{desc}' (exit {res.returncode}):\n{res.stderr}\n{res.stdout}")
+            return False
+        print(f"[OK] {desc} completado.")
+    return True
+
+
 def main():
     print("=" * 60)
     print("  SOMBRA: Generador Autónomo de Banners 21:9 (Windows)")
     print("=" * 60)
-    
-    cap = encontrar_siguiente_capitulo()
+
+    cap, es_regeneracion = encontrar_siguiente_capitulo()
     if cap is None:
-        print("[OK] ¡Todos los capítulos (1 al 25) ya tienen su banner 21:9 generado!")
+        print("[OK] ¡Todos los capítulos pendientes han sido completados!")
         desinstalar_tarea_programada()
         mostrar_notificacion_windows(
             "SOMBRA Novela - Colección Completa",
-            "¡Todos los banners 21:9 (Capítulos 1 al 25) han sido generados y publicados! La tarea automática se ha autoeliminado."
+            "¡Todos los banners 21:9 pendientes han sido actualizados y publicados en la web! La tarea automática se ha autoeliminado.",
         )
         sys.exit(0)
-        
-    print(f"[*] Siguiente capítulo a procesar: Capítulo {cap}")
+
+    modo = "REGENERACIÓN" if es_regeneracion else "NUEVO"
+    print(f"[*] Siguiente capítulo a procesar ({modo}): Capítulo {cap}")
     prompt_texto = extraer_prompt(cap)
     if not prompt_texto:
         sys.exit(1)
-        
+
     print(f"[*] Prompt cargado ({len(prompt_texto)} caracteres).")
-    
-    # Instrucción para que el subproceso de agy invoque el generador de imágenes y guarde la ruta
+    banner_dest = BANNERS_DIR / f"cap_{cap}.jpg"
+    mtime_previo = banner_dest.stat().st_mtime if banner_dest.exists() else 0.0
+
     instruccion_agente = (
-        f"Por favor ejecuta esta tarea automática de banner para el Capítulo {cap} de la novela SOMBRA:\n"
-        f"IMPORTANTE PARA LA COHERENCIA VISUAL:\n"
-        f"Antes de generar la imagen, consulta las fotos de referencia canónicas en img/personajes/ (thomas.jpg, sarah.jpg, jean_luc.jpg, ramos.jpg, pleh.jpg) "
-        f"para asegurar que los rasgos fisonómicos, etnia, edad, peinado y complexión de cada personaje coincidan fielmente con el retrato canónico de su archivo.\n"
+        f"Ejecuta esta tarea automática de banner 21:9 para el Capítulo {cap} de la novela SOMBRA:\n"
+        f"REGLAS ESTRICTAS DE COHERENCIA VISUAL:\n"
+        f"- Consulta los retratos canónicos en img/personajes/ (thomas.jpg, sarah.jpg, jean_luc.jpg, ramos.jpg, pleh.jpg, tripulacion.jpg) "
+        f"para respetar fielmente la apariencia, etnia, edad, peinado y vestuario de cada personaje.\n"
+        f"- CERO texto, letras, números o hologramas flotantes inventados.\n"
         f"1. Invoca al subagente 'image-generator' con Role 'Banner Image Generator Cap {cap}' usando exactamente este prompt:\n"
         f"'''\n{prompt_texto}\n'''\n"
-        f"2. Con la ruta absoluta de la imagen JPG generada por el subagente, ejecuta el recorte exacto a 21:9 corriendo el comando:\n"
+        f"2. Cuando el subagente responda con la ruta del archivo generado, recórtalo a 21:9 sobrescribiendo img/banners/cap_{cap}.jpg ejecutando:\n"
         f"python recortar_banner_21_9.py \"<ruta_imagen_generada>\" {cap}\n"
-        f"3. Verifica que exista el archivo img/banners/cap_{cap}.jpg.\n"
-        f"4. Ejecuta: node build-novel-data.js\n"
-        f"5. Ejecuta: python .agents/skills/memo/scripts/recopilar_historial.py\n"
-        f"6. Sincroniza con GitHub ejecutando: python sync_multiversion_to_github.py\n"
-        f"7. Responde únicamente: [BANNER_CAP_{cap}_COMPLETADO]"
+        f"3. Verifica que img/banners/cap_{cap}.jpg exista y esté recién guardado.\n"
+        f"4. Responde únicamente: [BANNER_CAP_{cap}_COMPLETADO]"
     )
-    
+
     print(f"[*] Lanzando agy.exe para el Capítulo {cap} en segundo plano...")
     cmd = [
         str(AGY_EXE),
+        "--mode", "auto",
         "--project", str(WORKSPACE),
-        "--print", instruccion_agente
+        "--print", instruccion_agente,
     ]
-    
+
     try:
         proc = subprocess.run(
             cmd,
@@ -142,28 +190,49 @@ def main():
             capture_output=True,
             text=True,
             encoding="utf-8",
-            errors="replace"
+            errors="replace",
         )
         print("[STDOUT]:")
         print(proc.stdout)
         if proc.stderr:
             print("[STDERR]:")
             print(proc.stderr)
-            
-        banner_dest = BANNERS_DIR / f"cap_{cap}.jpg"
-        if banner_dest.exists():
-            print(f"\n[ÉXITO] ¡Banner de Capítulo {cap} creado correctamente en {banner_dest}!")
+
+        actualizado = banner_dest.exists() and (banner_dest.stat().st_mtime > mtime_previo)
+        if actualizado:
+            print(f"\n[ÉXITO] ¡Banner de Capítulo {cap} generado correctamente en {banner_dest}!")
+            # Actualizar web, historial y GitHub directamente desde Python
+            web_ok = actualizar_web_y_github()
+
+            # Sacar de la cola si era una regeneración
+            if es_regeneracion:
+                cola = cargar_cola()
+                if cap in cola:
+                    cola.remove(cap)
+                    guardar_cola(cola)
+                    print(f"[OK] Capítulo {cap} retirado de la cola. Pendientes: {cola}")
+
+            estado_web = "y web actualizada en GitHub" if web_ok else "(pendiente de push a GitHub)"
             mostrar_notificacion_windows(
                 "SOMBRA Novela",
-                f"Imagen Generada SOMBRA capítulo {cap} (Haz clic para verla en grande)",
-                ruta_imagen=banner_dest
+                f"Imagen Generada SOMBRA capítulo {cap} {estado_web}. Haz clic para verla en grande.",
+                ruta_imagen=banner_dest,
             )
+
+            # Comprobar si ya no queda nada pendiente tras este capítulo
+            sig_cap, _ = encontrar_siguiente_capitulo()
+            if sig_cap is None:
+                desinstalar_tarea_programada()
+                mostrar_notificacion_windows(
+                    "SOMBRA Novela - Actualización Completa",
+                    "¡Todos los banners críticos han sido regenerados y publicados en la web! La tarea automática se ha autoeliminado.",
+                )
         else:
-            print(f"\n[AVISO] Finalizado el proceso, pero no se detectó {banner_dest}")
+            print(f"\n[AVISO] El proceso finalizó, pero {banner_dest} no se actualizó (se reintentará en el próximo ciclo).")
     except Exception as e:
         print(f"[ERROR al ejecutar agy]: {e}")
         sys.exit(1)
 
+
 if __name__ == "__main__":
     main()
-

@@ -1,53 +1,46 @@
 # -*- coding: utf-8 -*-
-from pathlib import Path
 import re
+from pathlib import Path
 
-def auditar_capitulo(ruta):
-    p = Path(ruta)
-    print(f"\n==========================================")
-    print(f" AUDITANDO: {p.name}")
-    print(f"==========================================")
+queismo_pat = re.compile(
+    r'\b(de que|a pesar que|antes que|despu[eé]s que|segur[oa]s? que|convencid[oa]s? que|'
+    r'cuenta que|acord\w* que|enter\w* que|asegur\w* que|duda que|miedo que|orgullos\w* que|'
+    r'consciente que|al margen que|en caso que|a condici[oó]n que|hasta el punto que|'
+    r'con tal que|resulta de que|parece de que|piens\w* de que|cre[eo]\w* de que|'
+    r'sab\w* de que|dij\w* de que|esper\w* de que|debo de |habr[ií]a que|para que|'
+    r'a que la|a que el|en que )\b',
+    re.IGNORECASE,
+)
+
+for cap in range(1, 6):
+    p = Path(f"novela/capitulos_scifi/capitulo_{cap}.md")
     lines = p.read_text(encoding="utf-8").splitlines()
-    
-    for i, line in enumerate(lines, 1):
-        s = line.strip()
+    print(f"\n================ CAP {cap} ================")
+    for i, l in enumerate(lines, 1):
+        s = l.strip()
         if not s:
             continue
-        
-        # 1. Títulos de secciones o metadatos
-        if s.startswith(('#', '---', '>')):
-            continue
-            
-        # 2. Puntos al final de viñetas o listas
-        if s.startswith(u'•'):
-            if not s.endswith(('.', ':', '!', '?')):
-                print(f"[VIÑETA SIN PUNTO FINAL] L{i}: {s}")
-            continue
-
-        # 3. Fecha/hora al inicio de sección
-        if s.startswith('*') and s.endswith('*'):
-            continue
-            
-        # 4. Falta de punto al final de párrafo narrativo
-        if not s.endswith(('.', ':', u'—', '!', '?', u'»', '"', u'…')):
-            print(f"[PARRAFO SIN PUNTO FINAL] L{i}: {s}")
-            
-        # 5. Diálogos mal puntuados (ejemplo: —Diálogo— dijo él sin punto final)
-        if s.startswith(u'—'):
-            # Si tiene inciso narrativo al final, debe terminar en punto
-            if not s.endswith(('.', '!', '?', u'»', '"', u'…')):
-                print(f"[DIALOGO SIN SIGNO FINAL] L{i}: {s}")
-        
-        # 6. Uso alterno Sala 2 vs Sala Dos
-        if 'sala 2' in s.lower():
-            print(f"[USO DE 'SALA 2'] L{i}: {s}")
-        if 'sala dos' in s.lower() and not s.startswith('#'):
-            print(f"[USO DE 'SALA DOS'] L{i}: {s}")
-            
-        # 7. Tiempo de pausa
-        if any(w in s.lower() for w in ['diez minutos', 'media hora']):
-            print(f"[PAUSA / TIEMPO] L{i}: {s}")
-
-auditar_capitulo("novela/capitulos_scifi/capitulo_1.md")
-auditar_capitulo("novela/capitulos_scifi/capitulo_2.md")
-auditar_capitulo("novela/capitulos_scifi/capitulo_3.md")
+        # 1. Queismo / dequeismo
+        for m in queismo_pat.finditer(s):
+            if m.group(0).lower() not in ("para que",):
+                print(f"  [QUEISMO/DEQUEISMO] L{i}: ({m.group(0)}) -> {s}")
+        # 2. Viñetas
+        if "•" in s or s.startswith("- "):
+            print(f"  [VIÑETA] L{i}: {s}")
+        # 3. Falta de punto final en párrafos o diálogos o citas
+        if not s.startswith(("#", "---", "*")):
+            if not s.endswith((".", ":", "!", "?", "»", '"', "…", "*")):
+                print(f"  [SIN PUNTO FINAL] L{i}: {s[-90:]}")
+        # 4. Fin en cursiva sin punto
+        if s.endswith("*") and not s.startswith("*") and not re.search(r'[.!?»…:]\*+$', s):
+            print(f"  [CURSIVA SIN PUNTO] L{i}: {s[-90:]}")
+        # 5. Encabezado pegado al párrafo siguiente (sin línea en blanco)
+        if s.startswith("#") and i < len(lines) and lines[i].strip() and not lines[i].strip().startswith("*"):
+            print(f"  [ENCABEZADO PEGADO] L{i}: {s} -> L{i+1}: {lines[i].strip()[:60]}")
+        # 6. Repetición léxica en la misma línea (palabras >= 6 letras)
+        words = re.findall(r'[a-záéíóúñ]{6,}', s.lower())
+        seen = {}
+        for idx_w, w in enumerate(words):
+            if w in seen and idx_w - seen[w] <= 12:
+                print(f"  [REPETICION] L{i}: '{w}' -> {s[:140]}")
+            seen[w] = idx_w
